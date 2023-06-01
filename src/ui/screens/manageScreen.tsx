@@ -1,5 +1,17 @@
-import { TextInput, Title } from "../components";
+// import { TextInput } from "../components";
 import { useForm } from "../../hooks";
+import {
+  Title,
+  TextInput,
+  Button,
+  Label,
+  Preview,
+  InputRadio,
+  InputRadioDiv,
+  ColorInputs,
+  InputDiv,
+  Section,
+} from "../styles";
 
 const colors = [
   "#009BFF",
@@ -27,42 +39,57 @@ const colors = [
 export function ManageScreen() {
   const { formData, handleChange } = useForm({
     statusName: "",
-    color: "009BFF",
+    color: "#009BFF",
   });
 
   function handleSubmit(event: any) {
     event.preventDefault();
 
-    console.log("toastr aqui");
+    console.log(formData);
+  }
+
+  function renderColors() {
+    return colors.map((color) => (
+      <InputRadioDiv color={color}>
+        <InputRadio
+          type="radio"
+          id="color"
+          name="color"
+          value={color}
+          onChange={handleChange}
+        />
+        <div></div>
+      </InputRadioDiv>
+    ));
   }
 
   return (
-    <section>
+    <Section>
       <div>
         <span>Gerenciamento</span>
         <span>Status</span>
       </div>
-      <Title />
+      <Title>Gerenciamento</Title>
+
       <form onSubmit={handleSubmit}>
-        <TextInput
-          label="Nome do status"
-          name="statusName"
-          placeholder="Ex.: Aprovado"
-          value={formData.statusName}
-          handleChange={handleChange}
-        />
-        <label>Cor</label>
-        {colors.map((color) => (
-          <input
-            type="radio"
-            id="cor"
-            name="cor"
-            value={color}
+        <InputDiv>
+          <label>Nome do status</label>
+          <TextInput
+            name="statusName"
+            placeholder="Ex.: Aprovado"
+            value={formData.statusName}
             onChange={handleChange}
           />
-        ))}
-        <button>Criar status</button>
+        </InputDiv>
+        <Preview color={formData.color}>
+          <span>{formData.statusName}</span>
+        </Preview>
+        <InputDiv>
+          <label>Cor</label>
+          <ColorInputs>{renderColors()}</ColorInputs>
+        </InputDiv>
+        <Button>Criar status</Button>
       </form>
-    </section>
+    </Section>
   );
 }
