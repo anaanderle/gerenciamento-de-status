@@ -4,14 +4,13 @@ import {
   Title,
   TextInput,
   Button,
-  Label,
   Preview,
-  InputRadio,
   InputRadioDiv,
   ColorInputs,
-  InputDiv,
+  ItemDiv,
   Section,
 } from "../styles";
+import arrowIcon from "../../assets/icons/arrowIcon.svg";
 
 const colors = [
   "#009BFF",
@@ -51,7 +50,7 @@ export function ManageScreen() {
   function renderColors() {
     return colors.map((color) => (
       <InputRadioDiv color={color}>
-        <InputRadio
+        <input
           type="radio"
           id="color"
           name="color"
@@ -67,29 +66,35 @@ export function ManageScreen() {
     <Section>
       <div>
         <span>Gerenciamento</span>
+        <img src={arrowIcon} alt="icon flecha" />
         <span>Status</span>
       </div>
-      <Title>Gerenciamento</Title>
+      <Title>Gerenciamento de status</Title>
 
-      <form onSubmit={handleSubmit}>
-        <InputDiv>
+      <ItemDiv row>
+        <ItemDiv>
           <label>Nome do status</label>
           <TextInput
             name="statusName"
             placeholder="Ex.: Aprovado"
             value={formData.statusName}
             onChange={handleChange}
+            maxLength="13"
           />
-        </InputDiv>
-        <Preview color={formData.color}>
-          <span>{formData.statusName}</span>
-        </Preview>
-        <InputDiv>
-          <label>Cor</label>
-          <ColorInputs>{renderColors()}</ColorInputs>
-        </InputDiv>
-        <Button>Criar status</Button>
-      </form>
+        </ItemDiv>
+        <ItemDiv>
+          <span>Prévia</span>
+          <Preview color={formData.color}>
+            <span>{formData.statusName}</span>
+          </Preview>
+        </ItemDiv>
+      </ItemDiv>
+
+      <ItemDiv>
+        <label>Cor</label>
+        <ColorInputs>{renderColors()}</ColorInputs>
+      </ItemDiv>
+      <Button onClick={handleSubmit}>Criar status</Button>
     </Section>
   );
 }
