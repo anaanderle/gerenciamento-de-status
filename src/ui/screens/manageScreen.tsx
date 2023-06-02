@@ -11,6 +11,7 @@ import {
   Section,
 } from "../styles";
 import arrowIcon from "../../assets/icons/arrowIcon.svg";
+import { toast } from "react-toastify";
 
 const colors = [
   "#009BFF",
@@ -44,7 +45,7 @@ export function ManageScreen() {
   function handleSubmit(event: any) {
     event.preventDefault();
 
-    console.log(formData);
+    toast.success("Status criado com sucesso!");
   }
 
   function renderColors() {
