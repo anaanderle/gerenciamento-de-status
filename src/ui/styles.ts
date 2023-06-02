@@ -1,5 +1,21 @@
 import styled from "styled-components";
 import checkIcon from "../assets/icons/checkIcon.svg";
+
+export const Section = styled.section`
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  width: 100vw;
+  height: 100vh;
+  padding: 24px;
+  font-size: 13px;
+
+  img {
+    width: 5px;
+    margin: 0px 10px;
+  }
+`;
+
 export const Title = styled.h1`
   color: #1e1e1e;
   font-size: 24px;
@@ -11,18 +27,15 @@ export const TextInput = styled.input`
 `;
 
 export const Button = styled.button`
-  width: 113px;
-  height: 42px;
-  color: #1e1e1e;
-  background-color: #000;
-  color: #fff;
-  border-radius: 4px;
   position: fixed;
   bottom: 24px;
   right: 24px;
+  width: 113px;
+  height: 42px;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #000;
 `;
-
-export const Label = styled.label``;
 
 export const Preview = styled.div`
   display: flex;
@@ -33,8 +46,6 @@ export const Preview = styled.div`
   height: 28px;
   width: 84px;
   padding: 5px;
-  box-sizing: border-box;
-  white-space: nowrap;
   border-radius: 2px;
 
   span {
@@ -49,15 +60,18 @@ export const InputRadioDiv = styled.div`
     width: 42px;
     height: 42px;
   }
+
   div {
     background-color: ${(props: { color?: string }) => props.color};
     width: 42px;
     height: 42px;
     border-radius: 6px;
   }
+
   input:checked + div {
     border: 2px solid black;
   }
+
   input:checked + div {
     background-image: url(${checkIcon});
     background-repeat: no-repeat;
@@ -74,30 +88,16 @@ export const ItemDiv = styled.div`
   display: flex;
   flex-direction: ${(props: { row?: boolean }) =>
     props.row ? "row" : "column"};
-  gap: 20px;
   align-items: ${(props: { row?: boolean }) =>
     props.row ? "center" : "normal"};
   padding: 10px 0px;
+  gap: 20px;
+
   input {
     width: 277px;
     height: 42px;
     padding: 10px;
     background-color: #f4f4f4;
     border: 0;
-  }
-`;
-
-export const Section = styled.section`
-  display: flex;
-  flex-direction: column;
-  background-color: #fff;
-  width: 100vw;
-  height: 100vh;
-  padding: 24px;
-  font-size: 13px;
-
-  img {
-    width: 5px;
-    margin: 0px 10px;
   }
 `;

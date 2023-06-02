@@ -1,4 +1,3 @@
-// import { TextInput } from "../components";
 import { useForm } from "../../hooks";
 import {
   Title,
@@ -45,7 +44,11 @@ export function ManageScreen() {
   function handleSubmit(event: any) {
     event.preventDefault();
 
-    toast.success("Status criado com sucesso!");
+    if (formData.statusName === "") {
+      toast.error("Adicione um nome ao status.");
+    } else {
+      toast.success("Status criado com sucesso!");
+    }
   }
 
   function renderColors() {
@@ -67,10 +70,11 @@ export function ManageScreen() {
   return (
     <Section>
       <div>
-        <span>Gerenciamento</span>
+        Gerenciamento
         <img src={arrowIcon} alt="icon flecha" />
-        <span>Status</span>
+        Status
       </div>
+
       <Title>Gerenciamento de status</Title>
 
       <ItemDiv row>
@@ -96,6 +100,7 @@ export function ManageScreen() {
         <label>Cor</label>
         <ColorInputs>{renderColors()}</ColorInputs>
       </ItemDiv>
+
       <Button onClick={handleSubmit}>Criar status</Button>
     </Section>
   );
