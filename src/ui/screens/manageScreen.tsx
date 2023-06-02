@@ -81,7 +81,7 @@ export function ManageScreen() {
             placeholder="Ex.: Aprovado"
             value={formData.statusName}
             onChange={handleChange}
-            maxLength="13"
+            maxLength={13}
           />
         </ItemDiv>
         <ItemDiv>

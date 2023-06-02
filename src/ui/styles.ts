@@ -28,7 +28,7 @@ export const Preview = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${(props) => props.color};
+  background-color: ${(props: { color?: string }) => props.color};
   color: #fff;
   height: 28px;
   width: 84px;
@@ -50,7 +50,7 @@ export const InputRadioDiv = styled.div`
     height: 42px;
   }
   div {
-    background-color: ${(props) => props.color};
+    background-color: ${(props: { color?: string }) => props.color};
     width: 42px;
     height: 42px;
     border-radius: 6px;
@@ -72,9 +72,11 @@ export const ColorInputs = styled.div`
 
 export const ItemDiv = styled.div`
   display: flex;
-  flex-direction: ${(props) => (props.row ? "row" : "column")};
+  flex-direction: ${(props: { row?: boolean }) =>
+    props.row ? "row" : "column"};
   gap: 20px;
-  align-items: ${(props) => (props.row ? "center" : "normal")};
+  align-items: ${(props: { row?: boolean }) =>
+    props.row ? "center" : "normal"};
   padding: 10px 0px;
   input {
     width: 277px;

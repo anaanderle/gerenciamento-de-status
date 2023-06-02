@@ -1,9 +1,17 @@
 import { useState } from "react";
 
-export const useForm = (initialData) => {
+interface InitialData {
+  [arg: string]: string;
+}
+
+export const useForm = (initialData: InitialData) => {
   const [formData, setFormData] = useState(initialData);
 
-  function handleChange({ target }) {
+  function handleChange({
+    target,
+  }: {
+    target: { name: string; value: string };
+  }) {
     const { name, value } = target;
     setFormData({
       ...formData,
