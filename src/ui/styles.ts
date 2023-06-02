@@ -53,7 +53,7 @@ export const Preview = styled.div`
   }
 `;
 
-export const InputRadioDiv = styled.div`
+export const ContainerRadio = styled.div`
   input {
     position: absolute;
     opacity: 0;
