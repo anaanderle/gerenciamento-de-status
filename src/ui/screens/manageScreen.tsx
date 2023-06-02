@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+import { colors } from "../../constants/colors";
 import { useForm } from "../../hooks";
 import {
   Title,
@@ -8,10 +10,8 @@ import {
   ColorInputs,
   ItemDiv,
   Section,
-} from "../styles";
+} from "../styles/styles";
 import arrowIcon from "../../assets/icons/arrowIcon.svg";
-import { toast } from "react-toastify";
-import { colors } from "../../constants/colors";
 
 export function ManageScreen() {
   const { formData, handleChange } = useForm({

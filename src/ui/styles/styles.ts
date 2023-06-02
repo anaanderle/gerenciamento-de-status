@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import checkIcon from "../assets/icons/checkIcon.svg";
+import checkIcon from "../../assets/icons/checkIcon.svg";
 
 export const Section = styled.section`
   display: flex;
