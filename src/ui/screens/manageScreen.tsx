@@ -39,7 +39,7 @@ const colors = [
 export function ManageScreen() {
   const { formData, handleChange } = useForm({
     statusName: "",
-    color: "#009BFF",
+    color: colors[0],
   });
 
   function handleSubmit(event: any) {
@@ -57,6 +57,7 @@ export function ManageScreen() {
           name="color"
           value={color}
           onChange={handleChange}
+          checked={color === formData.color}
         />
         <div></div>
       </InputRadioDiv>

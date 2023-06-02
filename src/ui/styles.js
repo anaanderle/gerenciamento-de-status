@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import checkIcon from "../assets/icons/checkIcon.svg";
 export const Title = styled.h1`
   color: #1e1e1e;
   font-size: 24px;
@@ -58,13 +58,10 @@ export const InputRadioDiv = styled.div`
   input:checked + div {
     border: 2px solid black;
   }
-  input:checked + div::after {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    content: "v";
+  input:checked + div {
+    background-image: url(${checkIcon});
+    background-repeat: no-repeat;
+    background-position: center;
   }
 `;
 
